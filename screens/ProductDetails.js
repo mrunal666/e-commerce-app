@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { CartContext } from "../CartContext";
 import { getProduct } from "../services/ProductService";
+import { Alert } from "react-native";
 export function ProductDetails({ route }) {
   const { productId } = route.params;
   const [product, setProduct] = useState({});
@@ -25,6 +26,14 @@ export function ProductDetails({ route }) {
 
   function onAddToCart() {
     addItemToCart(product.product_id);
+    Alert.alert("Item Added to Cart", "", [
+      {
+        text: "Cancel",
+        onPress: () => console.log("Cancel Pressed"),
+        style: "cancel",
+      },
+      { text: "OK", onPress: () => console.log("OK Pressed") },
+    ]);
   }
 
   return (
