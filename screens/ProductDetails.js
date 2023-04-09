@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
   image: {
     height: 300,
     width: "100%",
+    resizeMode: "stretch",
   },
   infoContainer: {
     padding: 16,
