@@ -8,8 +8,8 @@ import {
   Button,
   StyleSheet,
 } from "react-native";
-import { getProduct } from "../services/ProductService.js";
 import { CartContext } from "../CartContext";
+import { getProduct } from "../services/ProductService";
 export function ProductDetails({ route }) {
   const { productId } = route.params;
   const [product, setProduct] = useState({});
@@ -17,17 +17,20 @@ export function ProductDetails({ route }) {
   const { addItemToCart } = useContext(CartContext);
 
   useEffect(() => {
-    setProduct(getProduct(productId));
+    async function FetchProduct() {
+      setProduct(await getProduct(productId));
+    }
+    FetchProduct();
   });
 
   function onAddToCart() {
-    addItemToCart(product.id);
+    addItemToCart(product.product_id);
   }
 
   return (
     <SafeAreaView>
       <ScrollView>
-        <Image style={styles.image} source={product.image} />
+        <Image style={styles.image} source={{ uri: product.product_img }} />
         <View style={styles.infoContainer}>
           <Text style={styles.name}>{product.name}</Text>
           <Text style={styles.price}>$ {product.price}</Text>

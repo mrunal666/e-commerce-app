@@ -4,8 +4,8 @@ export const CartContext = createContext();
 export function CartProvider(props) {
   const [items, setItems] = useState([]);
 
-  function addItemToCart(id) {
-    const product = getProduct(id);
+  async function addItemToCart(id) {
+    const product = await getProduct(id);
     setItems((prevItems) => {
       const item = prevItems.find((item) => item.id == id);
       if (!item) {
@@ -15,14 +15,14 @@ export function CartProvider(props) {
             id,
             qty: 1,
             product,
-            totalPrice: product.price,
+            totalPrice: parseInt(product.price),
           },
         ];
       } else {
         return prevItems.map((item) => {
           if (item.id == id) {
             item.qty++;
-            item.totalPrice += product.price;
+            item.totalPrice += parseInt(product.price);
           }
           return item;
         });

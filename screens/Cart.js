@@ -33,7 +33,7 @@ export function Cart({ navigation }) {
       contentContainerStyle={styles.itemsListContainer}
       data={items}
       renderItem={renderItem}
-      keyExtractor={(item) => item.product.id.toString()}
+      keyExtractor={(item) => item.product.product_id}
       ListFooterComponent={Totals}
     />
   );

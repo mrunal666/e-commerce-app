@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { View, Text, FlatList, StyleSheet } from "react-native";
 import { Product } from "../components/Product.js";
 import { getProducts } from "../services/ProductService";
+import axios from "axios";
+
 export function ProductsList({ navigation }) {
   function renderProduct({ item: product }) {
     return (
@@ -9,7 +11,7 @@ export function ProductsList({ navigation }) {
         {...product}
         onPress={() => {
           navigation.navigate("ProductDetails", {
-            productId: product.id,
+            productId: product.product_id,
           });
         }}
       />
@@ -19,14 +21,17 @@ export function ProductsList({ navigation }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    setProducts(getProducts());
+    async function FetchAllProducts() {
+      setProducts(await getProducts());
+    }
+    FetchAllProducts();
   });
 
   return (
     <FlatList
       style={styles.productsList}
       contentContainerStyle={styles.productsListContainer}
-      keyExtractor={(item) => item.id.toString()}
+      keyExtractor={(item) => item.product_id}
       data={products}
       renderItem={renderProduct}
     />
