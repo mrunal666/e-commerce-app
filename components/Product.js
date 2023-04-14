@@ -6,7 +6,7 @@ export function Product({ name, price, product_img, onPress }) {
       <Image style={styles.thumb} source={{ uri: product_img }} />
       <View style={styles.infoContainer}>
         <Text style={styles.name}>{name}</Text>
-        <Text style={styles.price}>₹ {price}</Text>
+        <Text style={styles.price}>$ {price}</Text>
       </View>
     </TouchableOpacity>
   );

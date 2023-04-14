@@ -42,7 +42,7 @@ export function ProductDetails({ route }) {
         <Image style={styles.image} source={{ uri: product.product_img }} />
         <View style={styles.infoContainer}>
           <Text style={styles.name}>{product.name}</Text>
-          <Text style={styles.price}>₹ {product.price}</Text>
+          <Text style={styles.price}>$ {product.price}</Text>
           <Text style={styles.description}>{product.description}</Text>
           <Button onPress={onAddToCart} title="Add to cart" />
         </View>

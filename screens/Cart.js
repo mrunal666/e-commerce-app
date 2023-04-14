@@ -12,7 +12,7 @@ export function Cart({ navigation }) {
     return (
       <View style={styles.cartLineTotal}>
         <Text style={[styles.lineLeft, styles.lineTotal]}>Total</Text>
-        <Text style={styles.lineRight}>₹ {total}</Text>
+        <Text style={styles.lineRight}>$ {total}</Text>
       </View>
     );
   }
@@ -22,7 +22,7 @@ export function Cart({ navigation }) {
         <Text style={styles.lineLeft}>
           {item.product.name} x {item.qty}
         </Text>
-        <Text style={styles.lineRight}>₹ {item.totalPrice}</Text>
+        <Text style={styles.lineRight}>$ {item.totalPrice}</Text>
       </View>
     );
   }
