@@ -17,7 +17,7 @@ function App() {
             name="Products"
             component={ProductsList}
             options={({ navigation }) => ({
-              title: "Products",
+              title: "The Home Decor",
               headerTitleStyle: styles.headerTitle,
               headerRight: () => <CartIcon navigation={navigation} />,
             })}
@@ -26,7 +26,7 @@ function App() {
             name="ProductDetails"
             component={ProductDetails}
             options={({ navigation }) => ({
-              title: "Product details",
+              title: "The Home Decor",
               headerTitleStyle: styles.headerTitle,
               headerRight: () => <CartIcon navigation={navigation} />,
             })}
